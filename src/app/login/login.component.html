@@ -1,0 +1,51 @@
+<div class="form-container">
+  <h2>Welcome back!</h2>
+  <form class="login-form" [formGroup]="loginForm" (submit)="onSubmit()">
+    <label for="login-email">Email</label>
+    <input
+      type="text"
+      name="login-email"
+      id="login-email"
+      placeholder="Enter your email here..."
+      formControlName="email"
+    />
+    <div
+      *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid"
+    >
+      <small *ngIf="loginForm.get('email')?.errors?.['required']"
+        >Email is required</small
+      >
+      <small *ngIf="loginForm.get('email')?.errors?.['email']"
+        >Invalid email</small
+      >
+    </div>
+    <label for="login-password">Password</label
+    ><input
+      type="password"
+      name="login-password"
+      id="login-password"
+      placeholder="Enter your password here..."
+      formControlName="password"
+    />
+    <div *ngIf="loginForm.get('password')?.touched || invalidPassword">
+      <small *ngIf="invalidPassword && loginForm.get('password')?.valid"
+        >Wrong password</small
+      >
+      <small
+        *ngIf="
+          loginForm.get('password')?.touched &&
+          loginForm.get('password')?.invalid
+        "
+        >Password is required</small
+      >
+    </div>
+    <div class="btn-container">
+      <button type="submit" class="primary-btn" [disabled]="loginForm.invalid">
+        Login
+      </button>
+      <button type="button" class="secondary-btn" (click)="toggleButton()">
+        New User?
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,78 @@
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 10px;
+  width: fit-content;
+  margin: 10vh auto;
+  color: rgb(255, 255, 255);
+  background-color: rgb(36, 36, 36);
+  box-shadow: 0px 0px 15px black inset;
+}
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 50vw;
+  gap: 5px;
+}
+label {
+  width: 100%;
+  margin-top: 15px;
+}
+input {
+  width: 100%;
+  outline: none;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: "Nunito", sans-serif;
+  transition: all 200ms ease;
+  &:focus {
+    border: 2px solid darkviolet;
+  }
+}
+.btn-container {
+  margin: 40px 0 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  width: 100%;
+}
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-family: "Nunito", sans-serif;
+  color: white;
+  transition: all 500ms ease;
+}
+.primary-btn {
+  background-color: darkviolet;
+  &:hover {
+    background-color: rgb(152, 0, 152);
+  }
+}
+button[disabled] {
+  transition: none;
+  background-color: gray;
+  cursor: not-allowed;
+  &:hover {
+    background-color: gray;
+  }
+}
+.secondary-btn {
+  background-color: transparent;
+  border: none;
+  &:hover {
+    color: violet;
+  }
+}
+small {
+  color: red;
+}

@@ -1,0 +1,59 @@
+<div class="form-container">
+  <h2>Welcome, sir!</h2>
+  <form class="sign-up-form" [formGroup]="signUpForm" (submit)="register()">
+    <label for="sign-up-name">Name</label>
+    <input
+      type="text"
+      name="sign-up-name"
+      id="sign-up-name"
+      placeholder="Enter your name here..."
+      formControlName="name"
+    />
+    <div *ngIf="signUpForm.get('name')?.touched && signUpForm.get('name')?.invalid">
+      <small>Name is required</small>
+    </div>
+    <label for="sign-up-email">Email</label>
+    <input
+      type="email"
+      name="sign-up-email"
+      id="sign-up-email"
+      placeholder="Enter your email here..."
+      formControlName="email"
+    />
+    <div *ngIf="signUpForm.get('email')?.touched && signUpForm.get('email')?.invalid">
+      <small *ngIf="signUpForm.get('email')?.errors?.['required']">Email is required</small>
+      <small *ngIf="signUpForm.get('email')?.errors?.['email']">Invalid email</small>
+    </div>
+    <label for="sign-up-password">New Password</label
+    ><input
+      type="password"
+      name="sign-up-password"
+      id="sign-up-password"
+      placeholder="Enter your password here..."
+      formControlName="password"
+    />
+    <div *ngIf="signUpForm.get('password')?.touched && signUpForm.get('password')?.invalid">
+      <small>Password is required</small>
+    </div>
+    <label for="confirm-password">Confirm Password</label
+    ><input
+      type="password"
+      name="confirm-password"
+      id="confirm-password"
+      placeholder="Enter your password here..."
+      formControlName="confirmPassword"
+    />
+    <div *ngIf="signUpForm.get('confirmPassword')?.touched && signUpForm.get('confirmPassword')?.invalid">
+      <small *ngIf="signUpForm.get('confirmPassword')?.errors?.['required']">Confirm Password is required</small>
+      <small *ngIf="signUpForm.get('confirmPassword')?.errors?.['passwordMismatch']">Passwords do not match</small>
+    </div>
+    <div class="btn-container">
+      <button type="submit" class="primary-btn" [disabled]="signUpForm.invalid">
+        Register
+      </button>
+      <button type="button" class="secondary-btn" (click)="toggleButton()">
+        Already Registered?
+      </button>
+    </div>
+  </form>
+</div>
